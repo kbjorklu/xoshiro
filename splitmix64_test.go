@@ -8,8 +8,7 @@ import (
 var _ rand.Source64 = (*SplitMix64)(nil)
 
 func TestSplitMix64(t *testing.T) {
-	var r SplitMix64
-	r.Seed(42)
+	r := NewSplitMix64(42)
 	// Generated using http://xoshiro.di.unimi.it/splitmix64.c .
 	expected := []uint64{
 		13679457532755275413,
@@ -32,8 +31,7 @@ func TestSplitMix64(t *testing.T) {
 }
 
 func TestSplitMix64RandSource(t *testing.T) {
-	var r SplitMix64
-	r.Seed(42)
+	r := NewSplitMix64(42)
 	for i := 0; i < 10000; i++ {
 		got := r.Int63()
 		if got < 0 {

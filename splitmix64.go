@@ -8,6 +8,14 @@ package xoshiro
 // http://xoshiro.di.unimi.it/splitmix64.c .
 type SplitMix64 uint64
 
+// NewSplitMix64 creates a new SplitMix64 PRNG.
+func NewSplitMix64(seed int64) *SplitMix64 {
+	var x SplitMix64
+	p := &x
+	p.Seed(seed)
+	return p
+}
+
 // Uint64 implements rand.Source64.
 func (x *SplitMix64) Uint64() uint64 {
 	*x += 0x9e3779b97f4a7c15

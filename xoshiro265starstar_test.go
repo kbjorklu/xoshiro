@@ -8,8 +8,7 @@ import (
 var _ rand.Source64 = (*Xoshiro256StarStar)(nil)
 
 func TestXoshiro256StarStar(t *testing.T) {
-	var r Xoshiro256StarStar
-	r.Seed(42)
+	r := NewXoshiro256StarStar(42)
 	// Generated using http://xoshiro.di.unimi.it/xoshiro256starstar.c .
 	expected := []uint64{
 		1546998764402558742,
@@ -53,8 +52,7 @@ func TestXoshiro256StarStar(t *testing.T) {
 }
 
 func TestXoshiro256StarStarRandSource(t *testing.T) {
-	var r Xoshiro256StarStar
-	r.Seed(42)
+	r := NewXoshiro256StarStar(42)
 	for i := 0; i < 10000; i++ {
 		got := r.Int63()
 		if got < 0 {

@@ -15,6 +15,13 @@ type Xoshiro256StarStar struct {
 	s3 uint64
 }
 
+// NewXoshiro256StarStar creates a new NewXoshiro256StarStar PRNG.
+func NewXoshiro256StarStar(seed int64) *Xoshiro256StarStar {
+	x := &Xoshiro256StarStar{}
+	x.Seed(seed)
+	return x
+}
+
 // Uint64 implements rand.Source64 by returning the next Xoshiro random number.
 func (x *Xoshiro256StarStar) Uint64() uint64 {
 	result := bits.RotateLeft64(x.s1*5, 7) * 9
