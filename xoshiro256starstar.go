@@ -1,5 +1,5 @@
-// Package xoshiro implements the Xoshiro256** and SplitMix64 pseudorandom
-// number generators described at http://xoshiro.di.unimi.it/ .
+// Package xoshiro implements the Xoshiro512**, Xoshiro256** and SplitMix64
+// pseudorandom number generators described at http://xoshiro.di.unimi.it/ .
 package xoshiro
 
 import "math/bits"
